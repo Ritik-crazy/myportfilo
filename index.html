@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>I'm Sorry — A Heartfelt Apology</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1:#f6f8ff; --bg2:#fffef6; --card:#fff; --accent:#ff6b81; --muted:#6b7280;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(255,107,129,0.08), transparent),
+                  radial-gradient(800px 400px at 90% 90%, rgba(99,102,241,0.06), transparent),
+                  linear-gradient(180deg,var(--bg1),var(--bg2));
+      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      padding:40px;
+    }
+
+    .stage{width:100%; max-width:920px; margin:0 auto; position:relative}
+
+    .card{
+      background: linear-gradient(180deg,#ffffff 0%, #fff8fb 100%);
+      border-radius:20px; padding:40px; box-shadow: 0 30px 60px rgba(16,24,40,0.12), inset 0 1px 0 rgba(255,255,255,0.6);
+      position:relative; overflow:hidden; border:1px solid rgba(0,0,0,0.03);
+    }
+
+    .paper-fold{
+      position:absolute; right:-120px; top:-120px; width:260px; height:260px;
+      transform:rotate(25deg); background:linear-gradient(135deg, rgba(255,255,255,0.4), rgba(0,0,0,0.03));
+      filter:blur(12px); opacity:0.6; border-radius:50%;
+    }
+
+    .header{display:flex; gap:20px; align-items:center}
+    .logo{
+      width:86px; height:86px; border-radius:14px; background:linear-gradient(135deg,#fff6f8,#ffeef3);
+      display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--accent); font-size:28px;
+      box-shadow: 0 8px 30px rgba(255,107,129,0.12);
+    }
+
+    .title{font-size:22px; font-weight:700; color:#0f172a}
+    .subtitle{color:var(--muted); font-size:14px}
+
+    .message-wrap{display:flex; gap:28px; margin-top:22px; align-items:flex-start}
+
+    .left{
+      flex:1.15; padding:22px; border-radius:12px; background:linear-gradient(180deg, rgba(255,245,247,0.6), rgba(255,255,255,0.4));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+    }
+
+    .handwriting{
+      font-family:'Dancing Script', cursive; font-size:28px; color:#0b1220; line-height:1.5; white-space:pre-wrap;
+      overflow:hidden; max-width:100%; display:inline-block; border-right:2px solid rgba(11,18,32,0.06);
+      animation: typing 5s steps(40,end) forwards, blink .9s step-end infinite;
+      width:0ch;
+    }
+
+    @keyframes typing{ from{width:0} to{width:100%} }
+    @keyframes blink{ 50%{border-color:transparent} }
+
+    .right{flex:0.9; display:flex; flex-direction:column; gap:18px}
+
+    .meta{background:linear-gradient(180deg,#fff,#fbfbff); padding:18px; border-radius:12px}
+    .meta p{margin:0; color:var(--muted); font-size:14px}
+
+    .buttons{display:flex; gap:12px; align-items:center}
+    .btn{padding:12px 18px; border-radius:10px; border:0; cursor:pointer; font-weight:600}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#ff8fa3); color:white; box-shadow: 0 8px 30px rgba(255,107,129,0.14)}
+    .btn-soft{background:transparent; color:var(--muted); border:1px solid rgba(15,23,42,0.06)}
+
+    .small{font-size:13px; color:var(--muted)}
+
+    .hearts{position:absolute; left:12px; bottom:12px; pointer-events:none}
+    .heart{position:absolute; width:20px; height:20px; transform:translateY(0); opacity:0;}
+    .heart:before,.heart:after{content:""; position:absolute; width:20px; height:20px; background:var(--accent); border-radius:10px}
+    .heart:before{transform:translateX(-10px) rotate(-45deg)}
+    .heart:after{transform:translateX(0) rotate(45deg)}
+
+    @media (max-width:780px){ .message-wrap{flex-direction:column} .right{order:2} }
+
+    .footer{margin-top:18px; display:flex; justify-content:space-between; align-items:center; color:var(--muted); font-size:13px}
+    .confetti {position:absolute; inset:0; pointer-events:none;}
+    .confetti .piece{position:absolute; width:10px; height:16px; opacity:0; transform:translateY(-20px) rotate(0deg)}
+
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <div class="card" role="main" aria-labelledby="sorry-title">
+      <div class="paper-fold" aria-hidden="true"></div>
+      <div class="header">
+        <div class="logo">❤</div>
+        <div>
+          <div id="sorry-title" class="title">A Sincere Apology — From the Heart</div>
+          <div class="subtitle">A small page with honest feelings</div>
+        </div>
+      </div>
+
+      <div class="message-wrap">
+        <div class="left" id="left">
+          <div id="handwriting" class="handwriting">I know I hurt you, and I am truly sorry.
+
+I can't take back what happened, but I want to learn from it and be better for you.
+
+Please give me a chance to show you the respect and love you deserve.
+
+— Always yours</div>
+        </div>
+
+        <div class="right">
+          <div class="meta">
+            <p><strong>A small request:</strong></p>
+            <p class="small">If you'd like, click "I accept" below — I will honor your feelings no matter what.</p>
+          </div>
+
+          <div class="buttons">
+            <button class="btn btn-primary" id="acceptBtn">I accept — Let's move forward</button>
+            <button class="btn btn-soft" id="laterBtn">I need some time</button>
+          </div>
+
+          <div class="meta" id="resultBox" style="display:none">
+            <p id="resultText" class="small"></p>
+          </div>
+
+          <div class="meta">
+            <p class="small">Want it customized? Tell me what to change — message, colors, or fonts.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="small">Built with ❤️ — a page for a heartfelt apology</div>
+        <div class="small">Tip: Save as .html and open in your browser to see it work</div>
+      </div>
+
+      <div class="hearts" id="heartsContainer" aria-hidden="true"></div>
+      <div class="confetti" id="confettiContainer" aria-hidden="true"></div>
+
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const el = document.getElementById('handwriting');
+      const text = el.textContent.trim();
+      const chars = text.length;
+      const duration = Math.min(Math.max(chars * 0.08, 3), 7);
+      el.style.animation = `typing ${duration}s steps(${Math.max(Math.floor(chars/2),20)}, end) forwards, blink .9s step-end infinite`;
+    })();
+
+    function createHeart(x,y){
+      const h = document.createElement('div'); h.className='heart';
+      h.style.left = x + 'px'; h.style.top = y + 'px';
+      const size = 12 + Math.random()*18; h.style.width = size + 'px'; h.style.height = size + 'px';
+      h.style.opacity = 0; document.getElementById('heartsContainer').appendChild(h);
+      const dx = (Math.random()-0.5)*200; const dy = -120 - Math.random()*160;
+      h.animate([
+        {transform:`translate(0,0) scale(0.4)`, opacity:0},
+        {transform:`translate(${dx}px,${dy}px) scale(1)`, opacity:1},
+        {transform:`translate(${dx*1.2}px,${dy*1.6}px) scale(0.6)`, opacity:0}
+      ], {duration:1100 + Math.random()*700, easing:'cubic-bezier(.2,.9,.3,1)'}).onfinish = ()=> h.remove();
+    }
+
+    function burstConfetti(){
+      const container = document.getElementById('confettiContainer');
+      for(let i=0;i<40;i++){
+        const p = document.createElement('div'); p.className='piece';
+        p.style.left = (Math.random()*100) + '%'; p.style.top = (Math.random()*30) + '%';
+        p.style.width = (6 + Math.random()*12) + 'px'; p.style.height = (8 + Math.random()*14) + 'px';
+        p.style.background = ['#ff7aa2','#ffd36b','#7fd3ff','#b9ffb7','#d09bff'][Math.floor(Math.random()*5)];
+        container.appendChild(p);
+        const fall = p.animate([
+          {transform:`translateY(-20px) rotate(0deg)`, opacity:0},
+          {transform:`translateY(${200 + Math.random()*300}px) rotate(${Math.random()*720}deg)`, opacity:1},
+          {opacity:0}
+        ], {duration:1200 + Math.random()*1200, delay: Math.random()*300});
+        fall.onfinish = ()=> p.remove();
+      }
+    }
+
+    document.getElementById('acceptBtn').addEventListener('click', function(e){
+      const box = document.getElementById('resultBox'); const txt = document.getElementById('resultText');
+      box.style.display='block'; txt.textContent = 'Thank you — I appreciate your openness. I will do my best to make things right.';
+      const rect = e.target.getBoundingClientRect(); const containerRect = document.getElementById('heartsContainer').getBoundingClientRect();
+      for(let i=0;i<12;i++){ createHeart(rect.left - containerRect.left + rect.width/2, rect.top - containerRect.top + rect.height/2); }
+      burstConfetti();
+    });
+
+    document.getElementById('laterBtn').addEventListener('click', function(e){
+      const box = document.getElementById('resultBox'); const txt = document.getElementById('resultText');
+      box.style.display='block'; txt.textContent = 'Okay — take your time. I will be here when you are ready.';
+      const rect = e.target.getBoundingClientRect(); const containerRect = document.getElementById('heartsContainer').getBoundingClientRect();
+      for(let i=0;i<6;i++){ createHeart(rect.left - containerRect.left + rect.width/2, rect.top - containerRect.top + rect.height/2); }
+    });
+
+    // Press 'c' to customize the message
+    document.addEventListener('keydown',(ev)=>{
+      if(ev.key.toLowerCase()==='c'){
+        const newMsg = prompt('Write a new message (English):', document.getElementById('handwriting').textContent);
+        if(newMsg!==null){ document.getElementById('handwriting').textContent = newMsg;
+          void document.getElementById('handwriting').offsetWidth;
+          (function(){ const el = document.getElementById('handwriting'); const chars = el.textContent.length; const duration = Math.min(Math.max(chars * 0.08, 3), 7);
+            el.style.animation = `typing ${duration}s steps(${Math.max(Math.floor(chars/2),20)}, end) forwards, blink .9s step-end infinite`;
+          })(); }
+      }
+    });
+
+  </script>
+</body>
+</html>
